@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06BC6C0C-9B81-4D35-97C1-F2452BCCEA94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLy_SinhVien</RootNamespace>
+    <AssemblyName>QuanLy_SinhVien</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>D:\data\Download\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BATLOI\LOI.cs" />
+    <Compile Include="DATASET\DataSet_DS_SinhVien_TheoKhoa.cs">
+      <DependentUpon>DataSet_DS_SinhVien_TheoKhoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATASET\DataSet_DS_SinhVien_TheoKhoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_DS_SinhVien_TheoKhoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATASET\Dataset_DanhSach_SinhVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dataset_DanhSach_SinhVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATASET\DataSet_DS_SinhVien_TheoLop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_DS_SinhVien_TheoLop.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_DAO\GiangVien_DAO.cs" />
+    <Compile Include="DOAN_DAO\HocPhan_DAO.cs" />
+    <Compile Include="DOAN_DAO\KETNOI_SQL.cs" />
+    <Compile Include="DOAN_DAO\LopHoc_DAO.cs" />
+    <Compile Include="DOAN_DAO\Lop_DAO.cs" />
+    <Compile Include="DOAN_DAO\SinhVien_DAO.cs" />
+    <Compile Include="DOAN_DAO\SinhVien_Hoc_DAO.cs" />
+    <Compile Include="DOAN_DAO\TaiKhoan_GiangVien_DAO.cs" />
+    <Compile Include="DOAN_DAO\TaiKhoa_Admin_DAO.cs" />
+    <Compile Include="DOAN_DTO\GiangVien_DTO.cs" />
+    <Compile Include="DOAN_DTO\HocPhan_DTO.cs" />
+    <Compile Include="DOAN_DTO\LopHoc_DTO.cs" />
+    <Compile Include="DOAN_DTO\Lop_DTO.cs" />
+    <Compile Include="DOAN_DTO\SinhVien_DTO.cs" />
+    <Compile Include="DOAN_DTO\SinhVien_Hoc_DTO.cs" />
+    <Compile Include="DOAN_DTO\TaiKhoan_Admin_DTO.cs" />
+    <Compile Include="DOAN_DTO\TaiKhoan_GiangVien_DTO.cs" />
+    <Compile Include="DOAN_GUI\Form_DiemTungSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_DiemTungSinhVien.Designer.cs">
+      <DependentUpon>Form_DiemTungSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_In_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_In_Report.Designer.cs">
+      <DependentUpon>Form_In_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Khoa_LopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Khoa_LopHoc.Designer.cs">
+      <DependentUpon>Form_Khoa_LopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_LayMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_LayMatKhau.Designer.cs">
+      <DependentUpon>Form_LayMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Main_GiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Main_GiangVien.Designer.cs">
+      <DependentUpon>Form_Main_GiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_NhapDiem.Designer.cs">
+      <DependentUpon>Form_NhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Quen_MatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Quen_MatKhau.Designer.cs">
+      <DependentUpon>Form_Quen_MatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_SinhVien_Hoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_SinhVien_Hoc.Designer.cs">
+      <DependentUpon>Form_SinhVien_Hoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_TaiKhoan.Designer.cs">
+      <DependentUpon>Form_TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_GiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_GiangVien.Designer.cs">
+      <DependentUpon>Form_Them_GiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_LopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_LopHoc.Designer.cs">
+      <DependentUpon>Form_Them_LopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_DanhSach_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_DanhSach_SinhVien.Designer.cs">
+      <DependentUpon>Form_DanhSach_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Khoa_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Khoa_SinhVien.Designer.cs">
+      <DependentUpon>Form_Khoa_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Home_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Home_SinhVien.Designer.cs">
+      <DependentUpon>Form_Home_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Home_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Home_Admin.Designer.cs">
+      <DependentUpon>Form_Home_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Dang_nhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Dang_nhap.Designer.cs">
+      <DependentUpon>Form_Dang_nhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_HocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_Them_HocPhan.Designer.cs">
+      <DependentUpon>Form_Them_HocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_ThongKe.Designer.cs">
+      <DependentUpon>Form_ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_ThongKe_CoVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOAN_GUI\Form_ThongKe_CoVan.Designer.cs">
+      <DependentUpon>Form_ThongKe_CoVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\Report_DS_SinhVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_DS_SinhVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\Report_DS_TheoKhoa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_DS_TheoKhoa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\Report_DS_TheoLop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_DS_TheoLop.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="DOAN_GUI\Form_DiemTungSinhVien.resx">
+      <DependentUpon>Form_DiemTungSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_In_Report.resx">
+      <DependentUpon>Form_In_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Khoa_LopHoc.resx">
+      <DependentUpon>Form_Khoa_LopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_LayMatKhau.resx">
+      <DependentUpon>Form_LayMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Main_GiangVien.resx">
+      <DependentUpon>Form_Main_GiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_NhapDiem.resx">
+      <DependentUpon>Form_NhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Quen_MatKhau.resx">
+      <DependentUpon>Form_Quen_MatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_SinhVien_Hoc.resx">
+      <DependentUpon>Form_SinhVien_Hoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_TaiKhoan.resx">
+      <DependentUpon>Form_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Them_GiangVien.resx">
+      <DependentUpon>Form_Them_GiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Them_LopHoc.resx">
+      <DependentUpon>Form_Them_LopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_DanhSach_SinhVien.resx">
+      <DependentUpon>Form_DanhSach_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Khoa_SinhVien.resx">
+      <DependentUpon>Form_Khoa_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Home_SinhVien.resx">
+      <DependentUpon>Form_Home_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Dang_nhap.resx">
+      <DependentUpon>Form_Dang_nhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Home_Admin.resx">
+      <DependentUpon>Form_Home_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_Them_HocPhan.resx">
+      <DependentUpon>Form_Them_HocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_ThongKe.resx">
+      <DependentUpon>Form_ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOAN_GUI\Form_ThongKe_CoVan.resx">
+      <DependentUpon>Form_ThongKe_CoVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="REPORT\Report_DS_SinhVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_DS_SinhVien.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\Report_DS_TheoKhoa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_DS_TheoKhoa.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\Report_DS_TheoLop.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Report_DS_TheoLop.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoKhoa.xsc">
+      <DependentUpon>DataSet_DS_SinhVien_TheoKhoa.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoKhoa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_DS_SinhVien_TheoKhoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoKhoa.xss">
+      <DependentUpon>DataSet_DS_SinhVien_TheoKhoa.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\Dataset_DanhSach_SinhVien.xsc">
+      <DependentUpon>Dataset_DanhSach_SinhVien.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\Dataset_DanhSach_SinhVien.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dataset_DanhSach_SinhVien.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DATASET\Dataset_DanhSach_SinhVien.xss">
+      <DependentUpon>Dataset_DanhSach_SinhVien.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoLop.xsc">
+      <DependentUpon>DataSet_DS_SinhVien_TheoLop.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoLop.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_DS_SinhVien_TheoLop.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DATASET\DataSet_DS_SinhVien_TheoLop.xss">
+      <DependentUpon>DataSet_DS_SinhVien_TheoLop.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agriculture_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh_nen_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh_nen_9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh_nen_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\art_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-of-two-clockwise-arrows-rotation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circular-shape-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\economic_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\education_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\education-classes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emergency-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foreign_language_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grade Grey.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-profile-users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inferential-statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ĐHQGHCM-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO_AGU_2023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male-student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male-teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\persons-in-a-class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\politic_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-out-option.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics-going-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\technology_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
